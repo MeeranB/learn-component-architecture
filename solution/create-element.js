@@ -9,7 +9,7 @@ function h(tag, props, ...children) {
       // if not a valid property set as an attribute
       // e.g. if `name` is "aria-label" do:
       // el.setAttribute("aria-label", props["aria-label"])
-      el.setAttribute(name, props[i]);
+      el.setAttribute(name, props[name]);
     }
   }
   el.append(...children);
