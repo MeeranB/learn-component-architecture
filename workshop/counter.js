@@ -1,20 +1,21 @@
 import h from "./create-element.js"
 
-let count = 0
+let state = {count: 0}
 
-function setCount(newCount) {
-  count = newCount
+function setState(newState) {
+  Object.assign(state, newState)
   app.innerHTML = ``
   app.append(counter());
 }
 
 function counter() {
+  const count = state.count
   const view = h("span", {}, count)
   const inc = () => {
-    setCount(count + 1)
+    setState({count: count + 1})
   }
   const dec = () => {
-    setCount(count - 1)
+    setState({count: count - 1})
   }
   const minusButton = h("button", { onclick: dec, disabled: count < 1}, "-")
   const button = h("button", { onclick: inc, disabled: count === 9 }, "+")
